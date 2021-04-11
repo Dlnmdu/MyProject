@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "436933334112",
+    "project_id": "helpmef-8e574",
+    "storage_bucket": "helpmef-8e574.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436933334112:android:8ffa7c56b9408c98d89f05",
+        "android_client_info": {
+          "package_name": "com.helpmef"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436933334112-mn28vah8bl5f6df1t6ge84i2bakqb4pg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5azXjWCo2XC9g_wn9ncfjJtlIeVc8rmU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436933334112-mn28vah8bl5f6df1t6ge84i2bakqb4pg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

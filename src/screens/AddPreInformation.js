@@ -1,0 +1,152 @@
+import React,{useState} from 'react';
+import {View, Text, TextInput, KeyboardAvoidingView, 
+        ScrollView, TouchableOpacity, Image} from 'react-native';
+import logAddinfoStyle from '../../styles/logAddinfoStyle';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { color } from 'react-native-reanimated';
+import AddInput from '../components/AddInput'
+//import { Feather } from '@expo/vector-icons';
+//import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+//import { MaterialIcons } from '@expo/vector-icons'; 
+//import { FontAwesome5 } from '@expo/vector-icons';
+
+const AddPreInformation = (props)=>{
+
+    const [enableShift, setEnableShift] = useState(false)
+
+    return(
+
+        <ScrollView>
+        
+        < KeyboardAvoidingView
+        style={logAddinfoStyle.container}
+        behavior="position"
+        enabled={enableShift}
+      >
+
+           
+                 
+            <View style={logAddinfoStyle.addPreInfoDataView}>
+
+                <View style={logAddinfoStyle.addPreInfoHeader}>
+
+                   
+                    <Image
+                        style={{width:100, height:100, top:30, left:130}}
+                        source={require('../../assets/add.png' )}/>
+
+                    <Text style={logAddinfoStyle.addPreinfoTxt}>Add phone numbers people
+                    who want to inform incase of an emergency situation. </Text>
+                    
+                </View>
+                
+
+                <View style={logAddinfoStyle.addPreInfoFooter} >
+           
+                <View style={[logAddinfoStyle.action,{top:-5}]}>
+                            <FontAwesome5 style={{top:13}} name="mobile-alt" size={24} color="#f44336" />
+                            <TextInput 
+                                style={logAddinfoStyle.userNameInput}
+                                placeholder= 'Enter Mobile Number 1'
+                                keyboardType = 'numeric'
+                                onFocus={()=>{setEnableShift(false)}}/>
+                
+                            <MaterialCommunityIcons style={{top:13}} name="checkbox-marked-circle-outline"
+                                size={24} color="green"/> 
+
+                </View>
+
+                <View style={[logAddinfoStyle.action,{top:5}]}>
+                            <FontAwesome5 style={{top:13}} name="mobile-alt" size={24} color="#f44336" />
+                            <TextInput 
+                                style={logAddinfoStyle.userNameInput}
+                                placeholder= 'Enter  Mobile Number 2'
+                                keyboardType = 'numeric'
+                                onFocus={()=>{setEnableShift(false)}}/>
+                
+                            <MaterialCommunityIcons style={{top:13}} name="checkbox-marked-circle-outline"
+                                size={24} color="green"/> 
+
+                </View>
+
+                <View style={[logAddinfoStyle.action,{top:15}]}>
+                            <FontAwesome5 style={{top:13}} name="mobile-alt" size={24} color="#f44336" />
+                            <TextInput 
+                                style={logAddinfoStyle.userNameInput}
+                                placeholder= 'Enter Mobile Number 3'
+                                keyboardType = 'numeric'
+                                onFocus={()=>{setEnableShift(false)}}/>
+                
+                            <MaterialCommunityIcons style={{top:13}} name="checkbox-marked-circle-outline"
+                                size={24} color="green"/> 
+
+                </View>
+
+                <View style={[logAddinfoStyle.action,{top:25}]}>
+                            <FontAwesome5 style={{top:13}} name="mobile-alt" size={24} color="#f44336" />
+                            <TextInput 
+                                style={logAddinfoStyle.userNameInput}
+                                placeholder= 'Enter Mobile Number 4'
+                                keyboardType = 'numeric'
+                                onFocus={()=>{setEnableShift(false)}}/>
+                
+                            <MaterialCommunityIcons style={{top:13}} name="checkbox-marked-circle-outline"
+                                size={24} color="green"/> 
+
+                </View>
+
+                <View style={[logAddinfoStyle.action,{top:35}]}>
+                            <FontAwesome5 style={{top:13}} name="mobile-alt" size={24} color="#f44336" />
+                            <TextInput 
+                                style={logAddinfoStyle.userNameInput}
+                                placeholder= 'Enter Mobile Number 5'
+                                keyboardType = 'numeric'
+                                onFocus={()=>{setEnableShift(false)}}/>
+                
+                            <MaterialCommunityIcons style={{top:13}} name="checkbox-marked-circle-outline"
+                                size={24} color="green"/> 
+
+                </View>
+                
+                     
+                <TextInput  style={logAddinfoStyle.messageInput}
+                    multiline
+                    numberOfLines= {4}
+                    keyboardAvoid = {()=>setEnableShift(true)}
+                    placeholder = {'Add Message you want to send in an emergency situation'}
+                    
+                />
+
+                
+
+                <View style={{alignSelf:'center', marginTop:50}}>
+                <TouchableOpacity style={logAddinfoStyle.addPreInfoSaveBtn}
+                onPress={()=> props.navigation.navigate('tabNav')} >
+                    <Text style={logAddinfoStyle.addPreInfosaveButtonText}> Save  </Text>
+                </TouchableOpacity>
+                </View>
+
+               
+
+                </View>
+
+            </View>
+                
+            <View style={{ height: 60 }} />
+
+    </KeyboardAvoidingView>
+    </ScrollView>
+                
+        
+       
+       
+        
+        
+    )
+}
+
+
+
+
+export default AddPreInformation;
