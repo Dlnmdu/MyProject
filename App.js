@@ -1,18 +1,17 @@
-
 import 'react-native-gesture-handler';
+
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { NavigationContainer, getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import  React,{ Component } from 'react';
-import { View, Text,TouchableOpacity, Image } from 'react-native';
-import { NavigationContainer,getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from './src/screens/LoginScreen';
-import AddInformation from './src/screens/AddInformation';
-import AddPreInformation from './src/screens/AddPreInformation';
-import StartScreen from './src/screens/StartScreen';
+
+import AddInformation from './src/screens/SignUp/AddInformation';
+import AddPreInformation from './src/screens/AddMobileNumbers/AddPreInformation';
+import ChangeUserData from './src/screens/ChangeUserData/ChangeUserData';
+import LoginScreen from './src/screens/Login/LoginScreen';
+import StartScreen from './src/screens/StartScreen/StartScreen';
 import TabNavigation from './src/screens/TabNavigation';
-import ChangeUserData from './src/screens/ChangeUserData';
+import { createStackNavigator } from '@react-navigation/stack';
 
-
-   
 const Stack = createStackNavigator();
 
 const NavigationDrawerStructure = (props) => {

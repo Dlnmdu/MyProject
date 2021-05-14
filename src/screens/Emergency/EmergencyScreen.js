@@ -1,17 +1,18 @@
-import React from 'react';
-import {View, Text, TouchableOpacity,Image} from 'react-native';
-import logAddinfoStyle from '../../styles/logAddinfoStyle';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 
+import React from 'react';
+import logAddinfoStyle from '../../../styles/logAddinfoStyle';
+import style from './styles';
 
 const EmergencyScreen = (props)=>{
 
     return(
-        <View style={logAddinfoStyle.emergScreenContainer}>
+        <View style={style.emergScreenContainer}>
             <TouchableOpacity
              onPress={()=> props.navigation.navigate('preInfo')}>
             <Image
                 style={{width:300, height:300, top:150, left:30}}
-                source={require('../../assets/HelpButton.png' )}/>
+                source={require('../../../assets/HelpButton.png' )}/>
             </TouchableOpacity>
         </View>
     )

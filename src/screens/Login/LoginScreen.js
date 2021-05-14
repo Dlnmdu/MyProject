@@ -1,13 +1,13 @@
+import {Alert, Button, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import React,{useState} from 'react';
-import {Alert,Text, View,  TextInput, Button, TouchableOpacity} from 'react-native';
-import logAddinfoStyle from '../../styles/logAddinfoStyle';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import auth from "@react-native-firebase/auth"
-
-
+import logAddinfoStyle from '../../../styles/logAddinfoStyle';
+import style from './styles';
 
 const LoginScreen =  (props)=>{
 
@@ -57,27 +57,27 @@ const LoginScreen =  (props)=>{
  
 
     return(
-        <View style={logAddinfoStyle.logincontainer}>
-            <View style={logAddinfoStyle.loginHeaderView}>
+        <View style={style.logincontainer}>
+            <View style={style.loginHeaderView}>
 
-                <Text style={logAddinfoStyle.loginHeaderText}>
+                <Text style={style.loginHeaderText}>
                     Hello !
                 </Text>
 
             </View>
 
-            <View style={logAddinfoStyle.loginFooterView}>
+            <View style={style.loginFooterView}>
 
                 <View style={{marginTop:70,marginLeft:10,marginRight:10}}>
-                    <Text style={logAddinfoStyle.textFooter} >
+                    <Text style={style.textFooter} >
                         Email
                     </Text>
 
-                    <View style={logAddinfoStyle.action}>
+                    <View style={style.action}>
                         <FontAwesome5 style={{top:13}} name="user-check" size={24} color="#f44336"  />
                         <TextInput 
                             label={"Email"}
-                            style={logAddinfoStyle.userNameInput}
+                            style={style.userNameInput}
                             placeholder= 'Enter User Name Here'
                             onChangeText={()=> setUserNameCheckIco(false) } 
                             color='black'
@@ -93,15 +93,15 @@ const LoginScreen =  (props)=>{
 
                     </View>
 
-                    <Text style={[logAddinfoStyle.textFooter,{marginTop:35}]} >
+                    <Text style={[style.textFooter,{marginTop:35}]} >
                         Password
                     </Text>
 
-                    <View style={logAddinfoStyle.action}>
+                    <View style={style.action}>
                         <FontAwesome style={{top:13}} name="lock" size={30} color="#f44336" />
                         <TextInput 
                             label={"Password"}
-                            style={logAddinfoStyle.passwordInput}
+                            style={style.passwordInput}
                             placeholder= 'Enter Password Here'
                             color='black'
                             secureTextEntry= {true} 
@@ -119,10 +119,10 @@ const LoginScreen =  (props)=>{
 
 
                     <View style={{alignSelf:'center', marginTop:50}}>
-                        <TouchableOpacity style={logAddinfoStyle.loginButton}
+                        <TouchableOpacity style={style.loginButton}
                         onPress= 
                             {__doSignUp}>
-                        <Text style={logAddinfoStyle.loginButtonText}> LOGIN </Text>
+                        <Text style={style.loginButtonText}> LOGIN </Text>
                         </TouchableOpacity>
                     </View>
             

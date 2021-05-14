@@ -1,6 +1,8 @@
+import {Image, Text, TouchableOpacity, View} from 'react-native';
+
 import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
-import logAddinfoStyle from '../../styles/logAddinfoStyle';
+import logAddinfoStyle from '../../../styles/logAddinfoStyle';
+import style from './styles';
 
 //import * as Animatable from 'react-native-animatable';
 
@@ -8,44 +10,44 @@ import logAddinfoStyle from '../../styles/logAddinfoStyle';
 const StartScreen = (props)=>{
 
     return(
-        <View style={logAddinfoStyle.startScreenContainer}>
+        <View style={style.startScreenContainer}>
                
-            <View style={logAddinfoStyle.startScreenHeader}>
+            <View style={style.startScreenHeader}>
             <Image
-        style={logAddinfoStyle.AppLogo}
-        source={require('../../assets/AppLogo.png')}/>
+        style={style.AppLogo}
+        source={require('../../../assets/AppLogo.png')}/>
             </View>
 
-            <View  style={logAddinfoStyle.startScreenFooter}>
+            <View  style={style.startScreenFooter}>
                 
-                <Text style={logAddinfoStyle.welcomeText2}>
+                <Text style={style.welcomeText2}>
                     HelpMe Mobile Application</Text>
 
               
 
-                    <Text style={logAddinfoStyle.introText}>
+                    <Text style={style.introText}>
                         Help Me is emergency Mobile Application
                         which helps you to when you are in emergency situation.
                 
                     </Text>
 
                 <View style={{alignSelf:'center', marginTop:50}}>
-                    <TouchableOpacity style={logAddinfoStyle.signInBtn}
+                    <TouchableOpacity style={style.signInBtn}
                      onPress={()=> props.navigation.navigate('login')} >
-                        <Text style={logAddinfoStyle.addPreInfosaveButtonText}> Sign In </Text>
+                        <Text style={style.addPreInfosaveButtonText}> Sign In </Text>
                     </TouchableOpacity>
                  </View>
 
               <View style={{alignSelf:'center', marginTop:20}}>
-                    <TouchableOpacity style={logAddinfoStyle.signUpBtn}
+                    <TouchableOpacity style={style.signUpBtn}
                      onPress={()=>props.navigation.navigate('addinfo')} >
-                        <Text style={logAddinfoStyle.addPreInfosaveButtonText}> Sign Up </Text>
+                        <Text style={style.addPreInfosaveButtonText}> Sign Up </Text>
                     </TouchableOpacity>
                 </View>
 
                 <View style={{alignSelf:'center', marginTop:20}}>
-                    <TouchableOpacity style={logAddinfoStyle.googleSignUpBtn} >
-                        <Text style={logAddinfoStyle.addPreInfosaveButtonText}> Sign Up with Google Account </Text>
+                    <TouchableOpacity style={style.googleSignUpBtn} >
+                        <Text style={style.addPreInfosaveButtonText}> Sign Up with Google Account </Text>
                     </TouchableOpacity>
                 </View>
 

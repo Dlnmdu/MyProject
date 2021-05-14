@@ -1,8 +1,10 @@
+import {KeyboardAvoidingView, ScrollView, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import React,{useState} from 'react';
-import {View, Text,TextInput, TouchableOpacity, KeyboardAvoidingView,ScrollView} from 'react-native';
-import logAddinfoStyle from '../../styles/logAddinfoStyle';
-import PNumberList from '../components/PNumberList';
-import GovEmerNumList from '../components/GovEmerNumList';
+
+import GovEmerNumList from '../../components/GovEmerNumList';
+import PNumberList from '../../components/PNumberList';
+import logAddinfoStyle from '../../../styles/logAddinfoStyle';
+import style from './styles';
 
 const ChangeUserData = (props)=>{
     const [enableShift, setEnableShift] = useState(false)
@@ -11,39 +13,39 @@ const ChangeUserData = (props)=>{
         <ScrollView>
         
         < KeyboardAvoidingView
-        style={logAddinfoStyle.container}
+        style={style.container}
         behavior="position"
         enabled={enableShift}
-      >
-        <View style={logAddinfoStyle.changeAddDataContainer}>
-            <TextInput style={logAddinfoStyle.addNumbersInput}
+        >
+        <View style={style.changeAddDataContainer}>
+            <TextInput style={style.addNumbersInput}
             placeholder = 'Add New Numbers'
             onFocus={()=>{setEnableShift(false)}}
             keyboardType = 'numeric' />
 
-            <TouchableOpacity style={logAddinfoStyle.pNumSaveButton}>
+            <TouchableOpacity style={style.pNumSaveButton}>
                 <Text style={{color:'white', alignSelf:'center',top:6,fontWeight:'bold'}}>Save</Text>
             </TouchableOpacity>
 
-            <View style={logAddinfoStyle.ChangeEmrgNumberView} >
+            <View style={style.ChangeEmrgNumberView} >
                 <PNumberList />
             </View>
 
-            <TextInput style={[logAddinfoStyle.addNumbersInput,{marginTop:20}]}
+            <TextInput style={[style.addNumbersInput,{marginTop:20}]}
             placeholder = 'Add New Numbers'
             onFocus={()=>{setEnableShift(false)}}
             keyboardType = 'numeric' />
 
-            <TouchableOpacity style={logAddinfoStyle.pNumSaveButton}
+            <TouchableOpacity style={style.pNumSaveButton}
              onPress={()=> props.navigation.navigate('preInfo')}>
                 <Text style={{color:'white', alignSelf:'center',top:6,fontWeight:'bold'}}>Savee</Text>
             </TouchableOpacity>
 
-            <View style={logAddinfoStyle.ChangeEmrgNumberView} >
+            <View style={style.ChangeEmrgNumberView} >
                 <GovEmerNumList />
             </View>
             
-            <TextInput style={logAddinfoStyle.changeMessageInput}
+            <TextInput style={style.changeMessageInput}
             placeholder = 'Change Your Emergency Message and press enter '
             onFocus={()=>{setEnableShift(true)}}
             multiline 

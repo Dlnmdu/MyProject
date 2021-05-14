@@ -1,16 +1,24 @@
+import {
+         Alert,
+         Image,
+         KeyboardAvoidingView,
+         ScrollView,
+         Text,
+         TextInput,
+         TouchableOpacity,
+         View
+} from 'react-native';
 import React,{useState} from 'react';
-import {Alert,Text, View, TouchableOpacity, TextInput,KeyboardAvoidingView,Image, 
-         ScrollView} from 'react-native';
-import AddInput from '../components/AddInput';
-import logAddinfoStyle from '../../styles/logAddinfoStyle';
-import InputComponent from '../components/InputComponent';
+
+import AddInput from '../../components/AddInput';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import InputComponent from '../../components/InputComponent';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import auth from "@react-native-firebase/auth";
-
-
+import logAddinfoStyle from '../../../styles/logAddinfoStyle';
+import style from './styles';
 
 const AddInformation = (props)=>{
 
@@ -62,15 +70,15 @@ const AddInformation = (props)=>{
          
 
        
-   <View style={logAddinfoStyle.AddInfocontainer}> 
+   <View style={style.AddInfocontainer}> 
 
             
 
-            <View style={logAddinfoStyle.addInfoHeader}>
+            <View style={style.addInfoHeader}>
 
             <Image
                         style={{width:100, height:100, top:70, left:130}}
-                        source={require('../../assets/add.png' )}/>
+                        source={require('../../../assets/add.png' )}/>
 
 <Text style={{marginHorizontal:10, top:80, color:'white'}}>Please Enter Your Information to Sign Up with Us</Text>
             
@@ -79,51 +87,51 @@ const AddInformation = (props)=>{
         <ScrollView>
                     
             < KeyboardAvoidingView
-                style={logAddinfoStyle.container}
+                style={style.container}
                 behavior="position"
                 enabled={enableShift}>
 
-                <View style={logAddinfoStyle.addInfoFooter}> 
+                <View style={style.addInfoFooter}> 
 
                    
 
                     <View style={{marginTop:25,marginLeft:20,marginRight:20}}>
 
-                        <Text style={logAddinfoStyle.textFooter}>Name</Text>
+                        <Text style={style.textFooter}>Name</Text>
 
-                        <View style={[logAddinfoStyle.action,{top:5}]}>
+                        <View style={[style.action,{top:5}]}>
                             <MaterialIcons style={{top:13}} name="drive-file-rename-outline" size={24} color="#f44336" />
                             <TextInput 
-                                style={logAddinfoStyle.userNameInput}
+                                style={style.userNameInput}
                                 placeholder= 'Enter First Name Here'
                                 placeholderTextColor = 'black'
                                 color='black'
                                 
                                 onFocus={()=>{setEnableShift(false)}}/>
                 
-                            <MaterialCommunityIcons style={{top:13}} name="checkbox-marked-circle-outline"
+                            <MaterialCommunityIcons style={{top:13,left:120}} name="checkbox-marked-circle-outline"
                                 size={24} color="green"/> 
 
                         </View>
 
-                        <View style={[logAddinfoStyle.action,{top:10},{paddingBottom:-50}]}>
+                        <View style={[style.action,{top:10},{paddingBottom:-50}]}>
                             <MaterialIcons style={{top:13}} name="drive-file-rename-outline" size={24} color="#f44336" />
                             <TextInput 
-                                style={logAddinfoStyle.userNameInput}
+                                style={style.userNameInput}
                                 placeholder= 'Enter Last Name Here'
                                 onFocus={()=>{setEnableShift(false)}}/>
                 
-                            <MaterialCommunityIcons style={{top:13}} name="checkbox-marked-circle-outline"
+                            <MaterialCommunityIcons style={{top:13,left:120}} name="checkbox-marked-circle-outline"
                                 size={24} color="green"/> 
 
                         </View>
 
-                        <Text style={[logAddinfoStyle.textFooter,{top:20},{paddingBottom:-50}]}>E-Mail</Text>
+                        <Text style={[style.textFooter,{top:20},{paddingBottom:-50}]}>E-Mail</Text>
 
-                        <View style={[logAddinfoStyle.action,{top:20}]}>
+                        <View style={[style.action,{top:20}]}>
                             <MaterialIcons style={{top:13}} name="email" size={24} color="#f44336" />
                             <TextInput 
-                                style={logAddinfoStyle.userNameInput}
+                                style={style.userNameInput}
                                 label={"Email"}
                                 placeholder= 'Enter Email Here'
                                 onFocus={()=>{setEnableShift(true)}}
@@ -135,17 +143,17 @@ const AddInformation = (props)=>{
                                 error={isValid}
                                 color='black' />
                 
-                            <MaterialCommunityIcons style={{top:13}} name="email-check" size={24} color="green"  /> 
+                            <MaterialCommunityIcons style={{top:13, left:155}} name="email-check" size={24} color="green"  /> 
 
                         </View>
 
-                        <Text style={[logAddinfoStyle.textFooter,{top:30},{paddingBottom:-50}]}>Password</Text>
+                        <Text style={[style.textFooter,{top:30},{paddingBottom:-50}]}>Password</Text>
 
-                        <View style={[logAddinfoStyle.action,{top:25}]}>
+                        <View style={[style.action,{top:25}]}>
                             <FontAwesome style={{top:13}} name="lock" size={24} color="#f44336" />
                             <TextInput 
                                 label={"Password"}
-                                style={logAddinfoStyle.userNameInput}
+                                style={style.userNameInput}
                                 color='black'
                                 placeholder= 'Enter Password Here'
                                 onFocus={()=>{setEnableShift(true)}}
@@ -154,7 +162,7 @@ const AddInformation = (props)=>{
                                 color='black'/>
                                 
                 
-                            <Ionicons style={{top:13}} name="eye-off-outline" size={24} color="gray" />
+                            <Ionicons style={{top:13,left:135}} name="eye-off-outline" size={24} color="gray" />
 
                         </View>
 
@@ -165,30 +173,30 @@ const AddInformation = (props)=>{
                                     </View>
                                 ) : null}
 
-                        <Text style={[logAddinfoStyle.textFooter,{top:35},{paddingBottom:-30}]}>Confirm Password</Text>
+                        <Text style={[style.textFooter,{top:35},{paddingBottom:-30}]}>Confirm Password</Text>
 
-                        <View style={[logAddinfoStyle.action,{top:35}]}>
+                        <View style={[style.action,{top:35}]}>
                             <FontAwesome style={{top:13}} name="lock" size={24} color="#f44336" />
                             <TextInput 
-                                style={logAddinfoStyle.userNameInput}
+                                style={style.userNameInput}
                                 placeholder= 'Confirm Password'
                                 onFocus={()=>{setEnableShift(true)}}/>
                 
-                            <Ionicons style={{top:13}} name="eye-off-outline" size={24} color="gray" />
+                            <Ionicons style={{top:13,left:148}} name="eye-off-outline" size={24} color="gray" />
 
                         </View>
 
                         <View style={{ marginTop:50, left:37}}>
-                            <TouchableOpacity style={logAddinfoStyle.AddinfoSaveButton}
+                            <TouchableOpacity style={style.AddinfoSaveButton}
                                 onPress={__doSignUp} >
-                                <Text style={logAddinfoStyle.AddinfoSaveButtonText}> Save </Text>
+                                <Text style={style.AddinfoSaveButtonText}> Save </Text>
                             </TouchableOpacity>
                         </View>
 
                         <View style={{alignSelf:'center', bottom:15, left:70}}>
-                            <TouchableOpacity style={logAddinfoStyle.AddinfoNextButton}
+                            <TouchableOpacity style={style.AddinfoNextButton}
                                 onPress={()=>props.navigation.navigate('preInfo')} >
-                                <Text style={logAddinfoStyle.AddinfoSaveButtonText}> Next </Text>
+                                <Text style={style.AddinfoSaveButtonText}> Next </Text>
                             </TouchableOpacity>
                         </View>
 

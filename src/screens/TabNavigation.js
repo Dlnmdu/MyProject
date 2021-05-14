@@ -1,26 +1,22 @@
-import React from 'react';
-import {View, Text} from 'react-native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import HealthScreen from './ViewHealth/Index';
-import FirstAidInfoScreen from './FirstAidInformation/index';
-import EmergencyScreen from './EmergencyScreen';
-import LocationScreen from './Location/index';
-import ChangeUserData from './ChangeUserData'; 
-import PoliceStations from './ViewPoliceStations/Index';  
-import Hospitals from './ViewHospitals/Index';
+import {Text, View} from 'react-native';
+
+import ChangeUserData from './ChangeUserData/ChangeUserData';
 import EmergencyContactNumbers from './ViewEmergencyNumbers/index';
-import LoginScreen from './LoginScreen';
-import DrawerNavigation from './DrawerNavigation';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import EmergencyScreen from './Emergency/EmergencyScreen';
+import FirstAidInfoScreen from './FirstAidInformation/index';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
-
-
-
+import HealthScreen from './ViewHealth/Index';
+import Hospitals from './ViewHospitals/Index';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import LocationScreen from './Location/index';
+import LoginScreen from './Login/LoginScreen';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import PoliceStations from './ViewPoliceStations/Index';
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 //import { NavigationContainer } from '@react-navigation/native';
 
