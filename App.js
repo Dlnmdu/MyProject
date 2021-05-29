@@ -11,13 +11,19 @@ import LoginScreen from './src/screens/Login/LoginScreen';
 import StartScreen from './src/screens/StartScreen/StartScreen';
 import TabNavigation from './src/screens/TabNavigation';
 import { createStackNavigator } from '@react-navigation/stack';
+import { combineReducers, createStore } from 'redux';
+import {Provider} from 'react-redux';
+// import {connect} from "react-redux";
+// import thunk from 'react-redux';
+import emergNumberReducer from './src/ReduxStore/reducers/EmergencyNumbers/index';
+//import ReduxThunk from 'redux-thunk'
 
+const rootReducer = combineReducers({emergNumbers:emergNumberReducer});
+const store = createStore(rootReducer);
 const Stack = createStackNavigator();
 
 const NavigationDrawerStructure = (props) => {
-  //Structure for the navigatin Drawer
   const toggleDrawer = () => {
-    //Props to open/close the drawer
     props.navigationProps.toggleDrawer();
   };
 
@@ -42,7 +48,7 @@ const NavigationDrawerStructure = (props) => {
 function App({navigation}) {
   return (
 
-   
+    <Provider store={store}>
     <NavigationContainer initialRouteName = "start">
       <Stack.Navigator>
 
@@ -111,6 +117,7 @@ function App({navigation}) {
 
 
     </NavigationContainer>
+    </Provider>
 
     
 

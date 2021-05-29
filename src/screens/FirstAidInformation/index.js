@@ -3,33 +3,29 @@ import {View, Text, ScrollView} from 'react-native';
 import style from './styles';
 import FirstAidInfoList from '../../components/FirstAidInfoList';
 
-const FirstAidInfoScreen = ()=>{
-
-    return(
+const FirstAidInfoScreen = () => {
+  return (
     <ScrollView>
-    <View>
+      <View>
         <Text style={style.burnText}>Burn Injuries</Text>
         <View>
-           
-           <FirstAidInfoList />
+          <FirstAidInfoList />
         </View>
 
         <Text style={style.burnText}>Deep Cut Injuries</Text>
 
         <View>
-
-        <FirstAidInfoList />
-
+          <FirstAidInfoList />
         </View>
 
         <Text style={style.burnText}>Accidents</Text>
 
         <View>
-        <FirstAidInfoList />
+          <FirstAidInfoList />
         </View>
-    </View>
+      </View>
     </ScrollView>
-    )
-}
+  );
+};
 
 export default FirstAidInfoScreen;
