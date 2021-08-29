@@ -9,20 +9,25 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 
-import AddInput from '../../components/AddInput';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {color} from 'react-native-reanimated';
-import logAddinfoStyle from '../../../styles/logAddinfoStyle';
 import style from './styles';
-
-//import { Feather } from '@expo/vector-icons';
-//import { MaterialCommunityIcons } from '@expo/vector-icons';
-//import { MaterialIcons } from '@expo/vector-icons';
-//import { FontAwesome5 } from '@expo/vector-icons';
+import firestore from '@react-native-firebase/firestore';
 
 const AddPreInformation = props => {
   const [enableShift, setEnableShift] = useState(false);
+  const [pEmergNumber, setPEmergNumber] = useState('');
+
+  const addPEmergNumbers = () => {
+    firestore()
+      .collection('Pcontacts')
+      .add({
+        number: pEmergNumber,
+      })
+      .then(() => {
+        setPEmergNumber(' ');
+      });
+  };
 
   return (
     <ScrollView>
@@ -57,6 +62,9 @@ const AddPreInformation = props => {
                 keyboardType="numeric"
                 onFocus={() => {
                   setEnableShift(false);
+                }}
+                onChangeText={text => {
+                  setPEmergNumber(text);
                 }}
               />
 
@@ -177,7 +185,10 @@ const AddPreInformation = props => {
             <View style={{alignSelf: 'center', marginTop: 50}}>
               <TouchableOpacity
                 style={style.addPreInfoSaveBtn}
-                onPress={() => props.navigation.navigate('tabNav')}>
+                onPress={() => {
+                  props.navigation.navigate('tabNav');
+                  addPEmergNumbers();
+                }}>
                 <Text style={style.addPreInfosaveButtonText}> Save </Text>
               </TouchableOpacity>
             </View>
