@@ -48,17 +48,25 @@ const ChangeUserData = props => {
           number3,
           number4,
           number5,
-        }); 
+        });
       });
 
-      setPersonalNumbers(numberlist.map(({m}) => m));
+      setPersonalNumbers(
+        numberlist.map(m => {
+          return {
+            num1: m.number1,
+            num2: m.number2,
+            num3: m.number3,
+            num4: m.number4,
+            num5: m.number5,
+          };
+        }),
+      );
       if (loading) {
-        setLoading(false); 
+        setLoading(false);
       }
     });
   }, []);
-
-
 
   console.log('got firestore data--->>', personalNumbers);
 
