@@ -1,4 +1,5 @@
 import {
+  Alert,
   Image,
   KeyboardAvoidingView,
   ScrollView,
@@ -13,21 +14,37 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import style from './styles';
 import firestore from '@react-native-firebase/firestore';
+import {DEFAULT_VERSION} from 'redux-persist/lib/constants';
 
 const AddPreInformation = props => {
   const [enableShift, setEnableShift] = useState(false);
   const [pEmergNumber, setPEmergNumber] = useState('');
+  const [pEmergNumber2, setPEmergNumber2] = useState('');
+  const [pEmergNumber3, setPEmergNumber3] = useState('');
+  const [pEmergNumber4, setPEmergNumber4] = useState('');
+  const [pEmergNumber5, setPEmergNumber5] = useState('');
+  
 
   const addPEmergNumbers = () => {
     firestore()
       .collection('Pcontacts')
       .add({
-        number: pEmergNumber,
+        number1: pEmergNumber,
+        number2: pEmergNumber2 ? pEmergNumber2 : null,
+        number3: pEmergNumber3 ? pEmergNumber3 : null,
+        number4: pEmergNumber4 ? pEmergNumber4 : null,
+        number5: pEmergNumber5 ? pEmergNumber5 : null,
       })
       .then(() => {
         setPEmergNumber(' ');
+        setPEmergNumber2(' ');
+        setPEmergNumber3(' ');
+        setPEmergNumber4(' ');
+        setPEmergNumber5(' ');
       });
   };
+
+  console.log('phone number ', pEmergNumber);
 
   return (
     <ScrollView>
@@ -90,6 +107,9 @@ const AddPreInformation = props => {
                 onFocus={() => {
                   setEnableShift(false);
                 }}
+                onChangeText={text => {
+                  setPEmergNumber2(text);
+                }}
               />
 
               <MaterialCommunityIcons
@@ -113,6 +133,9 @@ const AddPreInformation = props => {
                 keyboardType="numeric"
                 onFocus={() => {
                   setEnableShift(false);
+                }}
+                onChangeText={text => {
+                  setPEmergNumber3(text);
                 }}
               />
 
@@ -138,6 +161,9 @@ const AddPreInformation = props => {
                 onFocus={() => {
                   setEnableShift(false);
                 }}
+                onChangeText={text => {
+                  setPEmergNumber4(text);
+                }}
               />
 
               <MaterialCommunityIcons
@@ -161,6 +187,9 @@ const AddPreInformation = props => {
                 keyboardType="numeric"
                 onFocus={() => {
                   setEnableShift(false);
+                }}
+                onChangeText={text => {
+                  setPEmergNumber5(text);
                 }}
               />
 
@@ -186,8 +215,12 @@ const AddPreInformation = props => {
               <TouchableOpacity
                 style={style.addPreInfoSaveBtn}
                 onPress={() => {
-                  props.navigation.navigate('tabNav');
-                  addPEmergNumbers();
+                  if (pEmergNumber !== '') {
+                    props.navigation.navigate('tabNav');
+                    addPEmergNumbers();
+                  } else {
+                    Alert.alert('Please add mobile numbers');
+                  }
                 }}>
                 <Text style={style.addPreInfosaveButtonText}> Save </Text>
               </TouchableOpacity>

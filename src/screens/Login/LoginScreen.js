@@ -19,8 +19,8 @@ import style from './styles';
 const LoginScreen = props => {
   const [userNameCheckIco, setUserNameCheckIco] = useState(true);
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('dulanhelp@gmail.com');
+  const [password, setPassword] = useState('12345678');
   const [fetching, setFetching] = useState(false);
   const [error, setError] = useState('');
   const [isValid, setValid] = useState(true);
