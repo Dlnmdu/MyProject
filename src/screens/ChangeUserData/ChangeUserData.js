@@ -32,6 +32,7 @@ const ChangeUserData = props => {
   const [personalNumbersText, setPersonalNumberText] = useState('');
   const [personalNumberCard, setPersonalNumberCard] = useState([]);
   const [personalNumbers, setPersonalNumbers] = useState([]);
+  const [filteredPersonalNumbers, setFilteredPersonalNumebers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const ref = firestore().collection('Pcontacts');
@@ -52,23 +53,28 @@ const ChangeUserData = props => {
       });
 
       setPersonalNumbers(
-        numberlist.map(m => {
-          return {
-            num1: m.number1,
-            num2: m.number2,
-            num3: m.number3,
-            num4: m.number4,
-            num5: m.number5,
-          };
-        }),
+        numberlist?.map(({number1, number2, number3, number4, number5}) => [
+          number1,
+          number2,
+          number3,
+          number4,
+          number5,
+        ]),
       );
+
       if (loading) {
         setLoading(false);
       }
+      PNumberList;
     });
   }, []);
 
-  console.log('got firestore data--->>', personalNumbers);
+  useEffect(() => {
+    if (personalNumbers) {
+      const filtered = [].concat.apply([], personalNumbers);
+      setFilteredPersonalNumebers(filtered);
+    }
+  }, [personalNumbers]);
 
   const addNewGovNumberCard = () => {
     Keyboard.dismiss();
@@ -160,7 +166,7 @@ const ChangeUserData = props => {
         </View>
         <View style={style.ChangeEmrgNumberView}>
           <FlatList
-            data={personalNumberCard}
+            data={filteredPersonalNumbers && filteredPersonalNumbers}
             renderItem={renderItemPersonalNum}
             keyExtractor={item => item.key}
           />

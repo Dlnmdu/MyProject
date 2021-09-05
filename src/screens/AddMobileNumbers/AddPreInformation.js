@@ -215,12 +215,12 @@ const AddPreInformation = props => {
               <TouchableOpacity
                 style={style.addPreInfoSaveBtn}
                 onPress={() => {
-                  if (pEmergNumber !== '') {
+                //  if (pEmergNumber !== '') {
                     props.navigation.navigate('tabNav');
-                    addPEmergNumbers();
-                  } else {
-                    Alert.alert('Please add mobile numbers');
-                  }
+                  //  addPEmergNumbers();
+                //  } else {
+                 //   Alert.alert('Please add mobile numbers');
+                //  }
                 }}>
                 <Text style={style.addPreInfosaveButtonText}> Save </Text>
               </TouchableOpacity>
