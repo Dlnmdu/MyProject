@@ -23,28 +23,17 @@ const AddPreInformation = props => {
   const [pEmergNumber3, setPEmergNumber3] = useState('');
   const [pEmergNumber4, setPEmergNumber4] = useState('');
   const [pEmergNumber5, setPEmergNumber5] = useState('');
-  
 
   const addPEmergNumbers = () => {
     firestore()
       .collection('Pcontacts')
       .add({
         number1: pEmergNumber,
-        number2: pEmergNumber2 ? pEmergNumber2 : null,
-        number3: pEmergNumber3 ? pEmergNumber3 : null,
-        number4: pEmergNumber4 ? pEmergNumber4 : null,
-        number5: pEmergNumber5 ? pEmergNumber5 : null,
       })
       .then(() => {
         setPEmergNumber(' ');
-        setPEmergNumber2(' ');
-        setPEmergNumber3(' ');
-        setPEmergNumber4(' ');
-        setPEmergNumber5(' ');
       });
   };
-
-  console.log('phone number ', pEmergNumber);
 
   return (
     <ScrollView>
@@ -215,12 +204,12 @@ const AddPreInformation = props => {
               <TouchableOpacity
                 style={style.addPreInfoSaveBtn}
                 onPress={() => {
-                //  if (pEmergNumber !== '') {
+                  if (pEmergNumber !== '') {
                     props.navigation.navigate('tabNav');
-                  //  addPEmergNumbers();
-                //  } else {
-                 //   Alert.alert('Please add mobile numbers');
-                //  }
+                    addPEmergNumbers();
+                  } else {
+                    Alert.alert('Please add mobile numbers');
+                  }
                 }}>
                 <Text style={style.addPreInfosaveButtonText}> Save </Text>
               </TouchableOpacity>

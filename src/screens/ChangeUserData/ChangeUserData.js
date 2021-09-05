@@ -7,60 +7,39 @@ import {
   View,
   FlatList,
   Keyboard,
+  Alert,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-
-import GovEmerNumList from '../../components/GovEmerNumList';
 import PNumberList from '../../components/PNumberList';
-import logAddinfoStyle from '../../../styles/logAddinfoStyle';
 import style from './styles';
-import {useDispatch} from 'react-redux';
-import {useSelector} from 'react-redux';
 import GovEmergNumberCard from '../../components/GovEmergNumberCard/index';
-import addGovEmergNumbers from '../../ReduxStore/actions/EmergencyNumbers/index';
-import {set} from 'react-native-reanimated';
 import NumbersUpdateInput from '../../components/NumbersUpdateInput/index';
 import firestore from '@react-native-firebase/firestore';
 
 const ChangeUserData = props => {
-  // const updatedGovNumbers = useSelector((state) => state.emergNumbers.govNumbers);
-  // const dispatch = useDispatch();
-
   const [enableShift, setEnableShift] = useState(false);
   const [govNumberText, setGovNumberText] = useState('');
   const [govNumbersCard, setGovNumbersCard] = useState([]);
   const [personalNumbersText, setPersonalNumberText] = useState('');
-  const [personalNumberCard, setPersonalNumberCard] = useState([]);
   const [personalNumbers, setPersonalNumbers] = useState([]);
   const [filteredPersonalNumbers, setFilteredPersonalNumebers] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const ref = firestore().collection('Pcontacts');
+  const myRnId = () => parseInt(Date.now() * Math.random());
 
   useEffect(() => {
     return ref.onSnapshot(querySnapshot => {
       const numberlist = [];
       querySnapshot.forEach(doc => {
-        const {number1, number2, number3, number4, number5} = doc.data();
+        const {number1} = doc.data();
         numberlist.push({
           id: doc.id,
           number1,
-          number2,
-          number3,
-          number4,
-          number5,
         });
       });
 
-      setPersonalNumbers(
-        numberlist?.map(({number1, number2, number3, number4, number5}) => [
-          number1,
-          number2,
-          number3,
-          number4,
-          number5,
-        ]),
-      );
+      setPersonalNumbers(numberlist?.map(({number1}) => [number1]));
 
       if (loading) {
         setLoading(false);
@@ -76,22 +55,38 @@ const ChangeUserData = props => {
     }
   }, [personalNumbers]);
 
+  const addPEmergNumbers = () => {
+    firestore()
+      .collection('Pcontacts')
+      .add({
+        id: myRnId(),
+        number1: personalNumbersText,
+      })
+      .then(() => {
+        setPersonalNumberText(' ');
+      });
+  };
+
+  const deletePEmergNumber = item => {
+    console.log('index from delete ', item.item);
+    if (item) {
+      firestore()
+        .collection('Pcontacts')
+        .where('number1', '==', item.item)
+        .get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(doc => {
+            doc.ref.delete();
+          });
+          Alert.alert('Successfully deleted');
+        });
+    }
+  };
+
   const addNewGovNumberCard = () => {
     Keyboard.dismiss();
     setGovNumbersCard([...govNumbersCard, govNumberText]);
     setGovNumberText('');
-  };
-
-  const addNewPersonalNumberCard = () => {
-    Keyboard.dismiss();
-    setPersonalNumberCard([...personalNumberCard, personalNumbersText]);
-    setPersonalNumberText('');
-  };
-
-  const deletePersonalNumbers = index => {
-    let personalNumbersCopy = [...personalNumberCard];
-    personalNumbersCopy.splice(index, 1);
-    setPersonalNumberCard(personalNumbersCopy);
   };
 
   const deleteGovNumbers = index => {
@@ -101,8 +96,9 @@ const ChangeUserData = props => {
   };
 
   const renderItemPersonalNum = (item, index) => {
+    console.log('print added item', item.index);
     return (
-      <TouchableOpacity key={index} onPress={() => deletePersonalNumbers()}>
+      <TouchableOpacity key={index} onPress={() => deletePEmergNumber(item)}>
         <GovEmergNumberCard text={item} />
       </TouchableOpacity>
     );
@@ -122,36 +118,6 @@ const ChangeUserData = props => {
       behavior="position"
       enabled={enableShift}>
       <View style={style.changeAddDataContainer}>
-        {/* <View>
-          <TextInput
-            style={style.addNumbersInput}
-            placeholder="Add New Numbers"
-            onFocus={() => {
-              setEnableShift(false);
-            }}
-            keyboardType="numeric"
-            
-          />
-
-          <TouchableOpacity
-            style={style.pNumSaveButton}
-            >
-            <Text
-              style={{
-                color: 'white',
-                alignSelf: 'center',
-                top: 6,
-                fontWeight: 'bold',
-              }}>
-              Save
-            </Text>
-          </TouchableOpacity>
-
-          <View style={style.ChangeEmrgNumberView}>
-            <PNumberList />
-          </View>
-        </View> */}
-
         <View style={{marginTop: 30}}>
           <NumbersUpdateInput
             placeholder="Add new personal Numbers"
@@ -160,7 +126,8 @@ const ChangeUserData = props => {
             }}
             value={personalNumbersText}
             onPress={() => {
-              addNewPersonalNumberCard();
+              // addNewPersonalNumberCard();
+              addPEmergNumbers();
             }}
           />
         </View>
