@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, SafeAreaView, Platform} from 'react-native';
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
 import Geolocation from 'react-native-geolocation-service';
 
 const LocationScreen = () => {
   const [location, setLocation] = useState(null);
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
 
   const handleLocationPermission = async () => {
     let permissionCheck = '';
@@ -34,6 +36,8 @@ const LocationScreen = () => {
       position => {
         const {latitude, longitude} = position.coords;
         setLocation({latitude, longitude});
+        setLatitude(latitude);
+        setLongitude(longitude);
       },
       error => {
         console.log(error.code, error.message);
@@ -54,15 +58,10 @@ const LocationScreen = () => {
             latitude: location.latitude,
             longitude: location.longitude,
             latitudeDelta: 0.0922,
-           longitudeDelta: 0.0421,
+            longitudeDelta: 0.0421,
           }}
           showsUserLocation={true}
         />
-        // <MapView.Marker
-        // coordinate={{
-          
-        // }}
-        // />
       )}
     </SafeAreaView>
   );
