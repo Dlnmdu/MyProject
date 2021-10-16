@@ -2,27 +2,24 @@ import {StyleSheet} from 'react-native';
 
 const style = StyleSheet.create({
   AddInfocontainer: {
-    // flex: 1,
-    backgroundColor: '#f44336',
+    backgroundColor: '#b00020',
   },
 
   action: {
     flexDirection: 'row',
     marginTop: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f44336',
+    backgroundColor: '#FFEBEE',
     paddingBottom: -2,
-    // paddingHorizontal:10
+    borderRadius: 16,
+    height: 60,
   },
 
   addInfoHeader: {
     height: 220,
-    //flex: 1,
-    backgroundColor: '#f44336',
+    backgroundColor: '#b00020',
   },
 
   addInfoFooter: {
-    // flex: 4,
     backgroundColor: 'white',
     borderTopRightRadius: 30,
     borderTopLeftRadius: 30,
@@ -37,9 +34,10 @@ const style = StyleSheet.create({
 
   AddinfoSaveButton: {
     width: 150,
-    height: 35,
-    backgroundColor: 'red',
-    borderRadius: 5,
+    height: 60,
+    backgroundColor: '#b00020',
+    borderRadius: 16,
+    justifyContent: 'center',
     top: 15,
     right: 35,
   },
@@ -49,15 +47,17 @@ const style = StyleSheet.create({
     alignSelf: 'center',
     padding: 5.7,
     fontWeight: 'bold',
+    fontSize: 16,
   },
 
   AddinfoNextButton: {
     width: 150,
-    height: 35,
-    backgroundColor: 'red',
-    borderRadius: 5,
-    bottom: 5,
-    left: 17,
+    height: 60,
+    backgroundColor: '#b00020',
+    borderRadius: 16,
+    bottom: 30,
+    justifyContent: 'center',
+    left: 29,
   },
 });
 

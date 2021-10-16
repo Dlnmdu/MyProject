@@ -5,11 +5,11 @@ const style = StyleSheet.create({
     width: 240,
     height: 240,
     alignSelf: 'center',
-    top: 150,
+    top: 120,
   },
 
   startScreenContainer: {
-    backgroundColor: '#f44336',
+    backgroundColor: '#b00020',
     flex: 1,
     // alignSelf:'center',
   },
@@ -19,18 +19,26 @@ const style = StyleSheet.create({
     alignSelf: 'center',
     padding: 5.7,
     fontWeight: 'bold',
+    fontSize: 16,
+  },
+  signInButtonText:{
+    color: '#b00020',
+    alignSelf: 'center',
+    padding: 5.7,
+    fontWeight: 'bold',
+    fontSize: 16,
   },
 
   startScreenFooter: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     paddingVertical: 50,
   },
 
   startScreenHeader: {
-    backgroundColor: '#f44336',
+    backgroundColor: '#b00020',
     flex: 2,
   },
 
@@ -48,26 +56,31 @@ const style = StyleSheet.create({
   },
 
   signUpBtn: {
-    width: 300,
-    height: 35,
-    backgroundColor: 'red',
-    borderRadius: 5,
-    bottom: 35,
+    width: 350,
+    height: 60,
+    backgroundColor: '#b00020',
+    borderRadius: 16,
+    marginBottom: 35,
+    justifyContent: 'center',
   },
 
   signInBtn: {
-    width: 300,
-    height: 35,
-    backgroundColor: 'red',
-    borderRadius: 5,
-    bottom: 30,
+    width: 350,
+    height: 60,
+    //  backgroundColor: '#b00020',
+    borderWidth: 2,
+    borderColor: '#b00020',
+    borderRadius: 16,
+    bottom: 35,
+    justifyContent: 'center',
   },
   googleSignUpBtn: {
-    width: 300,
-    height: 35,
-    backgroundColor: 'red',
-    borderRadius: 5,
+    width: 350,
+    height: 60,
+    backgroundColor: '#b00020',
+    borderRadius: 16,
     bottom: 40,
+    justifyContent: 'center',
   },
 
   introText: {

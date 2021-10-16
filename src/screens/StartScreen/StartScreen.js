@@ -17,21 +17,6 @@ const StartScreen = props => {
       </View>
 
       <View style={style.startScreenFooter}>
-        <Text style={style.welcomeText2}>HelpMe Mobile Application</Text>
-
-        <Text style={style.introText}>
-          Help Me is emergency Mobile Application which helps you to when you
-          are in emergency situation.
-        </Text>
-
-        <View style={{alignSelf: 'center', marginTop: 50}}>
-          <TouchableOpacity
-            style={style.signInBtn}
-            onPress={() => props.navigation.navigate('login')}>
-            <Text style={style.addPreInfosaveButtonText}> Sign In </Text>
-          </TouchableOpacity>
-        </View>
-
         <View style={{alignSelf: 'center', marginTop: 20}}>
           <TouchableOpacity
             style={style.signUpBtn}
@@ -46,6 +31,14 @@ const StartScreen = props => {
               {' '}
               Sign Up with Google Account{' '}
             </Text>
+          </TouchableOpacity>
+        </View>
+
+        <View style={{alignSelf: 'center', marginTop: 10}}>
+          <TouchableOpacity
+            style={style.signInBtn}
+            onPress={() => props.navigation.navigate('login')}>
+            <Text style={style.signInButtonText}> Sign In </Text>
           </TouchableOpacity>
         </View>
       </View>

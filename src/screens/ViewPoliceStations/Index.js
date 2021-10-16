@@ -11,6 +11,7 @@ import style from './styles';
 import Foundation from 'react-native-vector-icons/Foundation';
 import Geolocation from 'react-native-geolocation-service';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import Header from '../../components/Header';
 
 const PoliceStations = () => {
   const [latitude, setLatitude] = useState('');
@@ -113,6 +114,7 @@ const PoliceStations = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header sideMenu />
       {location && (
         <MapView
           style={styles.map}
@@ -128,14 +130,14 @@ const PoliceStations = () => {
 
         //curly brace here lets you write javscript in JSX
       )}
-      {policeLocations.map(item => (
+      {/* {policeLocations.map(item => (
         <Marker
           key={item?.id}
           title={item?.name}
           name={item?.name}
           position={{lat: item?.latitude, lng: item?.longitude}}
         />
-      ))}
+      ))} */}
     </SafeAreaView>
   );
 };

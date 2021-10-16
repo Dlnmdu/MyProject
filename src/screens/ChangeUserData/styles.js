@@ -12,21 +12,24 @@ const style = StyleSheet.create({
     height: 40,
   },
 
-  changeAddDataContainer: {},
+  changeAddDataContainer: {
+  
+   height:'100%',
+   flex:1
+  },
 
   ChangeEmrgNumberView: {
-   // backgroundColor:'yellow',
-    width: 400,
+    
+    width: '100%',
     height: 180,
     borderRadius: 10,
-    marginLeft:15,
-    marginRight:15,
+   // marginLeft: 15,
+   // marginRight: 15,
     marginTop: 20,
-    
   },
 
   pNumSaveButton: {
-    backgroundColor: 'red',
+  
     borderWidth: 1.5,
     borderColor: '#f44336',
     width: 70,
@@ -36,13 +39,16 @@ const style = StyleSheet.create({
     bottom: 5,
   },
   changeMessageInput: {
-    borderWidth: 1.5,
-    borderColor: '#f44336',
+   // borderWidth: 1.5,
+   // borderColor: '#f44336',
+   width:'95%',
+   backgroundColor:'#FFEBEE',
     marginHorizontal: 20,
-    top: 40,
+    top: 14,
     textAlignVertical: 'top',
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 13,
+    alignSelf:'center'
   },
 });
 
