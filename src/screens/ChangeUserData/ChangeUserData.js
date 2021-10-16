@@ -8,6 +8,7 @@ import {
   FlatList,
   Keyboard,
   Alert,
+  SafeAreaView,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import PNumberList from '../../components/PNumberList';
@@ -15,7 +16,7 @@ import style from './styles';
 import GovEmergNumberCard from '../../components/GovEmergNumberCard/index';
 import NumbersUpdateInput from '../../components/NumbersUpdateInput/index';
 import firestore from '@react-native-firebase/firestore';
-
+import Header from '../../components/Header';
 const ChangeUserData = props => {
   const [enableShift, setEnableShift] = useState(false);
   const [govNumberText, setGovNumberText] = useState('');
@@ -113,11 +114,14 @@ const ChangeUserData = props => {
   };
 
   return (
-    <KeyboardAvoidingView
-      style={style.container}
-      behavior="position"
-      enabled={enableShift}>
-      <View style={style.changeAddDataContainer}>
+    // <KeyboardAvoidingView
+    // //  style={style.container}
+    //   behavior="position"
+    //   enabled={enableShift}>
+
+    <View style={style.changeAddDataContainer}>
+      <Header />
+      <ScrollView style={{height: '100%', paddingHorizontal: 15}}>
         <View style={{marginTop: 30}}>
           <NumbersUpdateInput
             placeholder="Add new personal Numbers"
@@ -159,19 +163,40 @@ const ChangeUserData = props => {
           />
         </View>
 
-        <TextInput
-          style={style.changeMessageInput}
-          placeholder="Change Your Emergency Message and press enter "
-          onFocus={() => {
-            setEnableShift(true);
-          }}
-          multiline
-          numberOfLines={4}
-        />
-      </View>
+        <View style={{height: 300}}>
+          <View
+            style={{
+              width: '100%',
+              height: 130,
+              backgroundColor: '#b00020',
+              borderRadius: 16,
+            }}>
+            <Text
+              style={{
+                color: '#FFFFFF',
+                marginLeft: 10,
+                top: 7,
+                fontWeight: 'bold',
+              }}>
+              Change your message
+            </Text>
+            <TextInput
+              style={style.changeMessageInput}
+              placeholder="Enter message here "
+              placeholderTextColor="#EF9A9A"
+              onFocus={() => {
+                setEnableShift(true);
+              }}
+              multiline
+              numberOfLines={4}
+            />
+          </View>
+        </View>
+      </ScrollView>
+    </View>
 
-      <View style={{height: 50}} />
-    </KeyboardAvoidingView>
+    //   <View style={{height: 50}} />
+    // </KeyboardAvoidingView>
   );
 };
 

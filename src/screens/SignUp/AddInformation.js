@@ -71,10 +71,6 @@ const AddInformation = props => {
           style={{width: 100, height: 100, top: 70, left: 130}}
           source={require('../../../assets/add.png')}
         />
-
-        <Text style={{marginHorizontal: 10, top: 80, color: 'white'}}>
-          Please Enter Your Information to Sign Up with Us
-        </Text>
       </View>
 
       <ScrollView>
@@ -84,19 +80,11 @@ const AddInformation = props => {
           enabled={enableShift}>
           <View style={style.addInfoFooter}>
             <View style={{marginTop: 25, marginLeft: 20, marginRight: 20}}>
-              <Text style={style.textFooter}>Name</Text>
-
               <View style={[style.action, {top: 5}]}>
-                <MaterialIcons
-                  style={{top: 13}}
-                  name="drive-file-rename-outline"
-                  size={24}
-                  color="#f44336"
-                />
                 <TextInput
-                  style={style.userNameInput}
+                  style={{paddingLeft: 20}}
                   placeholder="Enter First Name Here"
-                  placeholderTextColor="black"
+                  placeholderTextColor="#EF9A9A"
                   color="black"
                   onFocus={() => {
                     setEnableShift(false);
@@ -112,15 +100,10 @@ const AddInformation = props => {
               </View>
 
               <View style={[style.action, {top: 10}, {paddingBottom: -50}]}>
-                <MaterialIcons
-                  style={{top: 13}}
-                  name="drive-file-rename-outline"
-                  size={24}
-                  color="#f44336"
-                />
                 <TextInput
-                  style={style.userNameInput}
+                  style={{paddingLeft: 20}}
                   placeholder="Enter Last Name Here"
+                  placeholderTextColor="#EF9A9A"
                   onFocus={() => {
                     setEnableShift(false);
                   }}
@@ -134,20 +117,11 @@ const AddInformation = props => {
                 />
               </View>
 
-              <Text style={[style.textFooter, {top: 20}, {paddingBottom: -50}]}>
-                E-Mail
-              </Text>
-
               <View style={[style.action, {top: 20}]}>
-                <MaterialIcons
-                  style={{top: 13}}
-                  name="email"
-                  size={24}
-                  color="#f44336"
-                />
                 <TextInput
-                  style={style.userNameInput}
+                  style={{paddingLeft: 20}}
                   label={'Email'}
+                  placeholderTextColor="#EF9A9A"
                   placeholder="Enter Email Here"
                   onFocus={() => {
                     setEnableShift(true);
@@ -169,22 +143,13 @@ const AddInformation = props => {
                 />
               </View>
 
-              <Text style={[style.textFooter, {top: 30}, {paddingBottom: -50}]}>
-                Password
-              </Text>
-
               <View style={[style.action, {top: 25}]}>
-                <FontAwesome
-                  style={{top: 13}}
-                  name="lock"
-                  size={24}
-                  color="#f44336"
-                />
                 <TextInput
                   label={'Password'}
-                  style={style.userNameInput}
-                  color="black"
+                  style={{paddingLeft: 20}}
+                  color=""
                   placeholder="Enter Password Here"
+                  placeholderTextColor="#EF9A9A"
                   onFocus={() => {
                     setEnableShift(true);
                   }}
@@ -207,19 +172,10 @@ const AddInformation = props => {
                 </View>
               ) : null}
 
-              <Text style={[style.textFooter, {top: 35}, {paddingBottom: -30}]}>
-                Confirm Password
-              </Text>
-
               <View style={[style.action, {top: 35}]}>
-                <FontAwesome
-                  style={{top: 13}}
-                  name="lock"
-                  size={24}
-                  color="#f44336"
-                />
                 <TextInput
-                  style={style.userNameInput}
+                  style={{paddingLeft: 20}}
+                  placeholderTextColor="#EF9A9A"
                   placeholder="Confirm Password"
                   onFocus={() => {
                     setEnableShift(true);
@@ -245,7 +201,10 @@ const AddInformation = props => {
               <View style={{alignSelf: 'center', bottom: 15, left: 70}}>
                 <TouchableOpacity
                   style={style.AddinfoNextButton}
-                  onPress={() => props.navigation.navigate('preInfo')}>
+                  onPress={() =>
+                    //props.navigation.navigate('preInfo')
+                    props.navigation.goBack()
+                  }>
                   <Text style={style.AddinfoSaveButtonText}> Next </Text>
                 </TouchableOpacity>
               </View>

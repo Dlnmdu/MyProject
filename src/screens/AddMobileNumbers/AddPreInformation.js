@@ -47,24 +47,13 @@ const AddPreInformation = props => {
               style={{width: 100, height: 100, top: 30, left: 130}}
               source={require('../../../assets/add.png')}
             />
-
-            <Text style={style.addPreinfoTxt}>
-              Add phone numbers people who want to inform incase of an emergency
-              situation.{' '}
-            </Text>
           </View>
 
           <View style={style.addPreInfoFooter}>
             <View style={[style.action, {top: -5}]}>
-              <FontAwesome5
-                style={{top: 13}}
-                name="mobile-alt"
-                size={24}
-                color="#f44336"
-              />
               <TextInput
-                style={style.userNameInput}
                 placeholder="Enter Mobile Number 1"
+                placeholderTextColor="#EF9A9A"
                 keyboardType="numeric"
                 onFocus={() => {
                   setEnableShift(false);
@@ -83,14 +72,8 @@ const AddPreInformation = props => {
             </View>
 
             <View style={[style.action, {top: 5}]}>
-              <FontAwesome5
-                style={{top: 13}}
-                name="mobile-alt"
-                size={24}
-                color="#f44336"
-              />
               <TextInput
-                style={style.userNameInput}
+                placeholderTextColor="#EF9A9A"
                 placeholder="Enter  Mobile Number 2"
                 keyboardType="numeric"
                 onFocus={() => {
@@ -110,14 +93,8 @@ const AddPreInformation = props => {
             </View>
 
             <View style={[style.action, {top: 15}]}>
-              <FontAwesome5
-                style={{top: 13}}
-                name="mobile-alt"
-                size={24}
-                color="#f44336"
-              />
               <TextInput
-                style={style.userNameInput}
+                placeholderTextColor="#EF9A9A"
                 placeholder="Enter Mobile Number 3"
                 keyboardType="numeric"
                 onFocus={() => {
@@ -137,14 +114,8 @@ const AddPreInformation = props => {
             </View>
 
             <View style={[style.action, {top: 25}]}>
-              <FontAwesome5
-                style={{top: 13}}
-                name="mobile-alt"
-                size={24}
-                color="#f44336"
-              />
               <TextInput
-                style={style.userNameInput}
+                placeholderTextColor="#EF9A9A"
                 placeholder="Enter Mobile Number 4"
                 keyboardType="numeric"
                 onFocus={() => {
@@ -164,15 +135,10 @@ const AddPreInformation = props => {
             </View>
 
             <View style={[style.action, {top: 35}]}>
-              <FontAwesome5
-                style={{top: 13}}
-                name="mobile-alt"
-                size={24}
-                color="#f44336"
-              />
               <TextInput
-                style={style.userNameInput}
+                // style={style.userNameInput}
                 placeholder="Enter Mobile Number 5"
+                placeholderTextColor="#EF9A9A"
                 keyboardType="numeric"
                 onFocus={() => {
                   setEnableShift(false);
@@ -193,6 +159,7 @@ const AddPreInformation = props => {
             <TextInput
               style={style.messageInput}
               multiline
+              placeholderTextColor="#EF9A9A"
               numberOfLines={4}
               keyboardAvoid={() => setEnableShift(true)}
               placeholder={

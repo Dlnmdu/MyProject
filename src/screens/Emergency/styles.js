@@ -1,7 +1,9 @@
 import {StyleSheet} from 'react-native';
 
 const style = StyleSheet.create({
-  emergScreenContainer: {},
+  emergScreenContainer: {
+   // flex:1
+  },
 
   helpButton: {
     width: 300,
@@ -14,6 +16,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     top: 220,
     borderRadius: 300,
+    elevation: 5
   },
 });
 

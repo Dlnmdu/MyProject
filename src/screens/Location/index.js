@@ -3,6 +3,7 @@ import {StyleSheet, SafeAreaView, Platform} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
 import Geolocation from 'react-native-geolocation-service';
+import Header from '../../components/Header';
 
 const LocationScreen = () => {
   const [location, setLocation] = useState(null);
@@ -50,6 +51,7 @@ const LocationScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+      <Header sideMenu />
       {location && (
         <MapView
           style={styles.map}

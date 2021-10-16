@@ -5,6 +5,7 @@ import {
   TextInput,
   TouchableOpacity,
   View,
+  Image,
 } from 'react-native';
 import React, {useState} from 'react';
 
@@ -15,6 +16,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import auth from '@react-native-firebase/auth';
 import logAddinfoStyle from '../../../styles/logAddinfoStyle';
 import style from './styles';
+import Toast from 'react-native-toast-message';
 
 const LoginScreen = props => {
   const [userNameCheckIco, setUserNameCheckIco] = useState(true);
@@ -49,19 +51,31 @@ const LoginScreen = props => {
     try {
       let response = await auth().signInWithEmailAndPassword(email, password);
       if (response && response.user) {
-        Alert.alert('Success ✅', 'Authenticated successfully');
+        Toast.show({
+          text1: 'Success',
+          text2: 'Login Successful',
+          visibilityTime: 5000,
+          type: 'success',
+        });
         props.navigation.navigate('tabNav');
       }
     } catch (e) {
-      //  console.error(e.message)
-      Alert.alert('Invalid Email or Password');
+      Toast.show({
+        text1: 'Error',
+        text2: 'Invalid Username Or Password',
+        visibilityTime: 5000,
+        type: 'error',
+      });
     }
   };
 
   return (
     <View style={style.logincontainer}>
       <View style={style.loginHeaderView}>
-        <Text style={style.loginHeaderText}>Hello !</Text>
+        <Image
+          source={require('../../../assets/AppLogo.png')}
+          style={{width: 100, height: 100, alignSelf:'center'}}
+        />
       </View>
 
       <View style={style.loginFooterView}>
@@ -69,12 +83,6 @@ const LoginScreen = props => {
           <Text style={style.textFooter}>Email</Text>
 
           <View style={style.action}>
-            <FontAwesome5
-              style={{top: 13}}
-              name="user-check"
-              size={24}
-              color="#f44336"
-            />
             <TextInput
               label={'Email'}
               style={style.userNameInput}
@@ -89,7 +97,7 @@ const LoginScreen = props => {
             />
 
             <MaterialCommunityIcons
-              style={{top: 13}}
+              style={{top: 15, marginRight: 20}}
               name="checkbox-marked-circle-outline"
               size={24}
               color="green"
@@ -100,12 +108,6 @@ const LoginScreen = props => {
           <Text style={[style.textFooter, {marginTop: 35}]}>Password</Text>
 
           <View style={style.action}>
-            <FontAwesome
-              style={{top: 13}}
-              name="lock"
-              size={30}
-              color="#f44336"
-            />
             <TextInput
               label={'Password'}
               style={style.passwordInput}
@@ -117,7 +119,7 @@ const LoginScreen = props => {
             />
 
             <Ionicons
-              style={{top: 13}}
+              style={{marginRight: 20, marginTop: 15}}
               name="eye-off-outline"
               size={24}
               color="gray"

@@ -5,6 +5,7 @@ import logAddinfoStyle from '../../../styles/logAddinfoStyle';
 import style from './styles';
 import SendSMS from 'react-native-sms';
 import Geolocation from 'react-native-geolocation-service';
+import Header from '../../components/Header';
 
 const EmergencyScreen = props => {
   const [mobileNumber, SetMobileNumber] = useState('0767765412');
@@ -90,13 +91,27 @@ const EmergencyScreen = props => {
   };
 
   return (
-    <View style={style.emergScreenContainer}>
-      <TouchableOpacity onPress={initiateSMS}>
-        <Image
-          style={{width: 300, height: 300, top: 150, left: 30}}
-          source={require('../../../assets/HelpButton.png')}
-        />
-      </TouchableOpacity>
+    <View>
+      <View style={style.emergScreenContainer}>
+        <Header sideMenu />
+        <View
+          style={{
+            width: 300,
+            height: 300,
+           // backgroundColor: 'yellow',
+            top: 150,
+            left: 50,
+            borderRadius: 200,
+            elevation:12
+          }}>
+          <TouchableOpacity onPress={() => {}} style={{top: 0, left: 0}}>
+            <Image
+              style={{width: 300, height: 300}}
+              source={require('../../../assets/AppLogo.png')}
+            />
+          </TouchableOpacity>
+        </View>
+      </View>
     </View>
   );
 };

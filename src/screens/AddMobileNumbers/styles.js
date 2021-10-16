@@ -14,10 +14,11 @@ const style = StyleSheet.create({
   action: {
     flexDirection: 'row',
     marginTop: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f44336',
+    backgroundColor: '#FFEBEE',
     paddingBottom: -2,
-    // paddingHorizontal:10
+    borderRadius: 16,
+    height: 60,
+    paddingLeft: 20,
   },
 
   addPreInfoHeaderText: {
@@ -41,7 +42,7 @@ const style = StyleSheet.create({
 
   addPreInfoHeader: {
     flex: 1,
-    backgroundColor: '#f44336',
+    backgroundColor: '#b00020',
     height: 200,
   },
 
@@ -55,27 +56,22 @@ const style = StyleSheet.create({
   },
 
   messageInput: {
-    borderWidth: 1,
-    borderColor: '#f44336',
     borderRadius: 10,
-    //  marginLeft: 35,
-    //  marginRight: 35,
+    backgroundColor: '#FFEBEE',
     top: 60,
     padding: 15,
     textAlignVertical: 'top',
-    // backgroundColor: '#ff9800',
-    //  bottom: 20
   },
 
   addPreInfoSaveBtn: {
-    width: 320,
-    height: 35,
-    // borderWidth: 1,
-    backgroundColor: 'red',
-    // borderColor: '#f44336',
-    borderRadius: 5,
+    width: 355,
+    height: 60,
+    backgroundColor: '#b00020',
+    borderRadius: 16,
     right: 0,
     top: 30,
+    justifyContent:'center'
+    
   },
 
   addPreInfosaveButtonText: {
@@ -83,6 +79,7 @@ const style = StyleSheet.create({
     alignSelf: 'center',
     padding: 5.7,
     fontWeight: 'bold',
+    fontSize:16
   },
 
   addPreInfoNextBtn: {

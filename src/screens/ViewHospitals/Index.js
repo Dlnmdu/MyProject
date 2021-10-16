@@ -12,6 +12,7 @@ import style from './styles';
 import Foundation from 'react-native-vector-icons/Foundation';
 import Geolocation from 'react-native-geolocation-service';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
+import Header from '../../components/Header';
 
 const Hospitals = () => {
   const [latitude, setLatitude] = useState();
@@ -22,18 +23,16 @@ const Hospitals = () => {
 
   const [hospitals] = useState([
     {
-      title:'colombo',
-      latitude:33.8,
-      longitude:77.8,
-      
+      title: 'colombo',
+      latitude: 33.8,
+      longitude: 77.8,
     },
     {
-      title:'colomboss',
-      latitude:33.2 ,
-      longitude:77.3,
-      
-    }
-  ])
+      title: 'colomboss',
+      latitude: 33.2,
+      longitude: 77.3,
+    },
+  ]);
 
   var radius = 5 * 1000;
   var apiKey = 'AIzaSyAKL072gMMQOtkiRb0mRDY9fKJ1P17oF7k';
@@ -77,8 +76,11 @@ const Hospitals = () => {
 
   return (
     <SafeAreaView style={styles.container}>
+     
       {location && (
+        
         <MapView
+        
           style={styles.map}
           provider={PROVIDER_GOOGLE}
           initialRegion={{
@@ -87,22 +89,22 @@ const Hospitals = () => {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}>
-          <Marker
-            coordinate={{
-              latitude: location.latitude,
-              longitude: location.longitude,
-             // latitudeDelta: 0.0922,
-             // longitudeDelta: 0.0421,
-            }}
+          {/* <Marker
+            // coordinate={{
+            //   latitude: location.latitude,
+            //   longitude: location.longitude,
+            //  // latitudeDelta: 0.0922,
+            //  // longitudeDelta: 0.0421,
+            // }}
             title="Me"
             description="My Location"></Marker>
             { hospitals && 
             <Marker
-            coordinate={hospitals && hospitals}
+            // coordinate={hospitals && hospitals}
             title='Hospitals'
             description='Searched hospitals'></Marker>
 
-            }
+            } */}
         </MapView>
       )}
     </SafeAreaView>
