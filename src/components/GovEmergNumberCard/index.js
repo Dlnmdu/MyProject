@@ -7,7 +7,7 @@ import {
   setGovNumbersCard,
 } from '../../screens/ChangeUserData/ChangeUserData';
 
-const GovEmergNumberCard = props => {
+const GovEmergNumberCard = (props) => {
   const deleteNumbers = index => {
     let numbersCopy = [...govNumbersCard];
     numbersCopy.splice(index, 1);
@@ -20,21 +20,24 @@ const GovEmergNumberCard = props => {
         <View style={style.numberTextView}>
           <Text style={style.title}>{props.text.item}</Text>
         </View>
-        <View
-          style={{
-            marginLeft: 290,
-            marginTop: 0,
-            position: 'absolute',
-            width: 50,
-            height: 50,
-            alignItems: 'center',
+      </View>
+      <View
+        style={{
+          // marginLeft: 290,
+          marginTop: -5,
+          //  position: 'absolute',
+          width: 40,
+          height: 40,
+          // alignItems: 'flex-end',
+          //backgroundColor:'yellow'
+        }}>
+        <TouchableOpacity
+          //  style={{marginTop: 5}}
+          onPress={() => {
+            props.onClicks(props.text);
           }}>
-          <TouchableOpacity
-            style={{marginTop: 5}}
-            onPress={() => deleteNumbers()}>
-            <Ionicons name="close-circle-sharp" size={40} color="#FFFFFF" />
-          </TouchableOpacity>
-        </View>
+          <Ionicons name="close-circle-sharp" size={40} color="#FFFFFF" />
+        </TouchableOpacity>
       </View>
     </View>
   );

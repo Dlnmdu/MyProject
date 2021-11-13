@@ -26,6 +26,7 @@ const style = StyleSheet.create({
    // marginLeft: 15,
    // marginRight: 15,
     marginTop: 20,
+   // backgroundColor:'yellow'
   },
 
   pNumSaveButton: {
@@ -49,6 +50,21 @@ const style = StyleSheet.create({
     padding: 10,
     borderRadius: 13,
     alignSelf:'center'
+  },
+  loginButton: {
+    width: 350,
+    height: 60,
+    backgroundColor: '#b00020',
+    borderRadius: 16,
+    justifyContent:'center'
+  },
+
+  loginButtonText: {
+    color: 'white',
+    alignSelf: 'center',
+    padding: 5.7,
+    fontWeight: 'bold',
+    fontSize:16
   },
 });
 
