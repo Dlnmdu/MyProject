@@ -202,8 +202,8 @@ const AddInformation = props => {
                 <TouchableOpacity
                   style={style.AddinfoNextButton}
                   onPress={() =>
-                    //props.navigation.navigate('preInfo')
-                    props.navigation.goBack()
+                    props.navigation.navigate('preInfo')
+                   // props.navigation.goBack()
                   }>
                   <Text style={style.AddinfoSaveButtonText}> Next </Text>
                 </TouchableOpacity>

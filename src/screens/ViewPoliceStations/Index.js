@@ -12,6 +12,7 @@ import Foundation from 'react-native-vector-icons/Foundation';
 import Geolocation from 'react-native-geolocation-service';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import Header from '../../components/Header';
+import MapViewDirections from 'react-native-maps-directions';
 
 const PoliceStations = () => {
   const [latitude, setLatitude] = useState('');
@@ -27,6 +28,8 @@ const PoliceStations = () => {
     '&radius=10000&type=police&key=AIzaSyAKL072gMMQOtkiRb0mRDY9fKJ1P17oF7k';
 
   const [location, setLocation] = useState(null);
+  const destination = policeLocations[0]?.location;
+  const apiKey = 'AIzaSyAKL072gMMQOtkiRb0mRDY9fKJ1P17oF7k';
 
   useEffect(() => {
     Geolocation.getCurrentPosition(
@@ -110,7 +113,7 @@ const PoliceStations = () => {
   //     });
   // }, []);
 
-  console.log('location array------', policeLocations);
+//  console.log('location array------', policeLocations[0].name);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -125,19 +128,19 @@ const PoliceStations = () => {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
-          showsUserLocation={true}
-        />
-
-        //curly brace here lets you write javscript in JSX
+          showsUserLocation={true}>
+          <MapViewDirections
+            origin={location}
+            destination={destination}
+            apikey={apiKey}
+            strokeWidth={5}
+            
+          />
+          {policeLocations?.map(d => (
+            <MapView.Marker coordinate={d.location} title={d.name} />
+          ))}
+        </MapView>
       )}
-      {/* {policeLocations.map(item => (
-        <Marker
-          key={item?.id}
-          title={item?.name}
-          name={item?.name}
-          position={{lat: item?.latitude, lng: item?.longitude}}
-        />
-      ))} */}
     </SafeAreaView>
   );
 };
